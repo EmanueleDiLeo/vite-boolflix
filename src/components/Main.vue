@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Card from "./partials/Card";
+import Card from './partials/Card.vue';
 
 export default {
   name:'Main',
