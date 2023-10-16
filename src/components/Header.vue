@@ -3,7 +3,7 @@
     <img src="/public/logo-boolflix.png" alt="logo">
     <div class="search">
       <input v-model="store.searchFilm" type="text" placeholder="Cerca">
-      <button @click="$emit('startSearch')" class="">Invio</button>
+      <button @click="$emit('startSearch')" class="btn btn-danger">Invio</button>
     </div>
   </header>
 </template>
