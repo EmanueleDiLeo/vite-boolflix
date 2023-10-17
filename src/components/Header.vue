@@ -1,8 +1,13 @@
 <template>
   <header class="d-flex justify-content-between ">
     <img src="/public/logo-boolflix.png" alt="logo">
-    <div class="search">
-      <input v-model="store.apiParams.query" type="text" placeholder="Cerca">
+    <div class="d-flex search">
+      <input v-model.trim="store.apiParams.query" @keyup.enter="$emit('startSearch')" type="text" placeholder="Cerca">
+      <select v-model="store.apiSearch" class="form-select">
+        <option value="">Tutto</option>
+        <option value="movie">Film</option>
+        <option value="tv">Serie TV</option>
+      </select>
       <button @click="$emit('startSearch')" class="btn btn-danger">Invio</button>
     </div>
   </header>
@@ -32,9 +37,11 @@ export default {
       width: 180px;
     }
     .search{
-      input{
+      align-items: center;
+      select{
         margin: 10px;
       }
+
     }
   }
 </style>
