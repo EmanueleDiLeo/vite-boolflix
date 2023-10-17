@@ -6,7 +6,7 @@ export const store = reactive({
   apiParams:{
     api_key:'06b299a80e4bc9840d33f61c66cf2ceb',
     language:'it-IT',
-    query:'pippo',
+    query:'pokemon',
   },
   movie:[],
   tv:[],

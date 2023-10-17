@@ -33,6 +33,10 @@ export default {
     background-color: $bg-header;
     height: 15vh;
     padding: 30px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
     img{
       width: 180px;
     }

@@ -1,8 +1,15 @@
 <template>
   <Header @startSearch="startApiSearch" />
-  <div v-if="store.movie.length > 0 || store.tv.length > 0">
-    <Main v-if="store.apiSearch !=='tv'" title="Film" type="movie"/>
-    <Main v-if="store.apiSearch !=='movie'" title="Serie TV" type="tv"/>
+
+  <div v-if="store.movie.length > 0 || store.apiSearch !=='movie'">
+    <div v-if="store.movie.length > 0">
+      <Main v-if="store.apiSearch !=='tv'" title="Film" type="movie"/>
+    </div>
+    <h2 v-else>Non ci sono Film</h2>
+    <div v-if="store.tv.length > 0">
+      <Main v-if="store.apiSearch !=='movie'" title="Serie TV" type="tv"/>
+    </div>
+    <h2 v-else>Non ci sono serie TV</h2>
   </div>
   <h2 v-else>Cerca un valore</h2>
 </template>

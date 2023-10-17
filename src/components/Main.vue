@@ -39,6 +39,7 @@ export default {
   @use '../scss/partials/variables' as *;
 
   main{
+    padding-top: 15vh;
     background-color: $bg-main;
     min-height: 85vh;
 
