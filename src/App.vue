@@ -28,13 +28,13 @@ export default {
 
   methods:{
 
-    getApi(type){
-      axios.get((store.apiUrl + type),{
+    getApi(typeSearch){
+      axios.get((store.apiUrl + typeSearch),{
         params: store.apiParams
       })
       .then( response => {
-        store[type] = response.data.results;
-        console.log(store[type]);
+        store[typeSearch] = response.data.results;
+        console.log(store[typeSearch]);
       })
       .catch(err => {
         console.log(err);

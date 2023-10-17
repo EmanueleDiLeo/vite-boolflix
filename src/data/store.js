@@ -8,7 +8,10 @@ export const store = reactive({
     language:'it-IT',
     query:'pippo',
   },
-
   movie:[],
   tv:[],
+
+
+  apiUrlImg:"http://image.tmdb.org/t/p/w500",
+
 })

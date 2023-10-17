@@ -2,7 +2,7 @@
   <header class="d-flex justify-content-between ">
     <img src="/public/logo-boolflix.png" alt="logo">
     <div class="d-flex search">
-      <input v-model.trim="store.apiParams.query" @keyup.enter="$emit('startSearch')" type="text" placeholder="Cerca">
+      <input v-model.trim="store.apiParams.query" @keyup.enter="$emit('startSearch')" class="form-control" type="text" placeholder="Cerca">
       <select v-model="store.apiSearch" class="form-select">
         <option value="">Tutto</option>
         <option value="movie">Film</option>
