@@ -12,6 +12,6 @@ export const store = reactive({
   tv:[],
 
 
-  apiUrlImg:"http://image.tmdb.org/t/p/w500",
+  apiUrlImg:"http://image.tmdb.org/t/p/w300",
 
 })

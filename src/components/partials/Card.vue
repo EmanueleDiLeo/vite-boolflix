@@ -2,7 +2,7 @@
   <div class="col-4 py-3">
     <div class="card h-100">
       <div class="container-img">
-        <img :src="getApiImg()" :alt="item.title || item.name">
+        <img :src="getApiImg" :alt="item.title || item.name">
       </div>
       <div class="card-body">
         <h2>{{ item.title || item.name }}</h2>
@@ -32,12 +32,13 @@ export default {
   },
 
   methods:{
+
   },
 
   computed:{
 
     getApiImg(){
-      return (this.store.apiUrlImg + this.item.poster_path);
+      return (store.apiUrlImg + this.item.poster_path);
     },
 
     languageImg(){
@@ -58,6 +59,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.container-img{
+  img{
+    width: 100%;
+  }
+}
   .language{
     img{
       width: 30px;
