@@ -1,12 +1,14 @@
 <template>
-  <div>
-    <h2>{{ film.title }}</h2>
-    <h2>{{ film.original_title }}</h2>
-    <div class="language">
-      <img v-if="languageImg" :src="urlImgLang" :alt="film.original_language">
-      <h2 v-else>{{ film.original_language }}</h2>
+  <div class="col-4 py-3">
+    <div class="card h-100">
+      <h2>{{ item.title || item.name }}</h2>
+      <h2>{{ item.original_title || item.original_name }}</h2>
+      <div class="language">
+        <img v-if="languageImg" :src="urlImgLang" :alt="item.original_language">
+        <h2 v-else>{{ item.original_language}}</h2>
+      </div>
+      <h2>{{ item.vote_average }}</h2>
     </div>
-    <h2>{{ film.vote_average }}</h2>
   </div>
 </template>
 
@@ -15,7 +17,7 @@ import { store } from '../../data/store';
 export default {
   name:'Card',
   props:{
-    film:Object,
+    item:Object,
   },
   date(){
     return{
@@ -29,7 +31,7 @@ export default {
 
   computed:{
     languageImg(){
-      switch(this.film.original_language){
+      switch(this.item.original_language){
         case "it":
           this.urlImgLang = "/public/it.png"
           return true;

@@ -2,7 +2,7 @@
   <header class="d-flex justify-content-between ">
     <img src="/public/logo-boolflix.png" alt="logo">
     <div class="search">
-      <input v-model="store.searchFilm" type="text" placeholder="Cerca">
+      <input v-model="store.apiParams.query" type="text" placeholder="Cerca">
       <button @click="$emit('startSearch')" class="btn btn-danger">Invio</button>
     </div>
   </header>
@@ -26,6 +26,7 @@ export default {
 @use '../scss/partials/variables' as *;
   header{
     background-color: $bg-header;
+    height: 15vh;
     padding: 30px 20px;
     img{
       width: 180px;

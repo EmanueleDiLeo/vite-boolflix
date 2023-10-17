@@ -1,6 +1,10 @@
 <template>
-  <Header @startSearch="getApi" />
-  <Main />
+  <Header @startSearch="startApiSearch" />
+  <div v-if="store.movie.length > 0 || store.tv.length > 0">
+    <Main v-if="store.apiSearch !=='tv'" title="Film" type="movie"/>
+    <Main v-if="store.apiSearch !=='movie'" title="Serie TV" type="tv"/>
+  </div>
+  <h2 v-else>Cerca un valore</h2>
 </template>
 
 <script>
@@ -24,21 +28,26 @@ export default {
 
   methods:{
 
-    getApi(){
-      axios.get(store.apiUrl,{
-        params:{
-          query: store.searchFilm,
-        }
+    getApi(type){
+      axios.get((store.apiUrl + type),{
+        params: store.apiParams
       })
       .then( response => {
-        store.cardFilm = response.data.results;
-        console.log(store.cardFilm);
+        store[type] = response.data.results;
+        console.log(store[type]);
       })
       .catch(err => {
         console.log(err);
       })
-    }
+    },
+
+    startApiSearch(){
+      this.getApi('movie');
+      this.getApi('tv');
+    },
   },
+
+
 
   mounted(){
 

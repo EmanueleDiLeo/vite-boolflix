@@ -1,10 +1,16 @@
 <template>
   <main>
-    <Card 
-      v-for="element in store.cardFilm" 
-      :key="element.id"
-      :film="element"
-      />
+    <div class="container">
+      <h2>{{ title }}</h2>
+      <div class="row">
+          <Card
+          v-for="element in store[type]" 
+          :key="element.id"
+          :item="element"
+          />
+      </div>
+    </div>
+
   </main>
 </template>
 
@@ -16,6 +22,10 @@ export default {
   name:'Main',
   components:{
     Card,
+  },
+  props:{
+    title:String,
+    type:Object,
   },
   data(){
     return{
@@ -30,5 +40,10 @@ export default {
 
   main{
     background-color: $bg-main;
+    min-height: 85vh;
+
+    h2{
+      color: white;
+    }
   }
 </style>
