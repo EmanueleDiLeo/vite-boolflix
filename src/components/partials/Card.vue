@@ -1,5 +1,5 @@
 <template>
-  <div class="col-4 py-3">
+  <div class=" py-3">
     <div class="card h-100 container-card">
       <div class="container-img">
         <img v-if="item.poster_path !== null" :src="getApiImg" :alt="item.title || item.name">
