@@ -1,19 +1,24 @@
 <template>
   <div class="col-4 py-3">
-    <div class="card h-100">
+    <div class="card h-100 container-card">
       <div class="container-img">
         <img v-if="item.poster_path !== null" :src="getApiImg" :alt="item.title || item.name">
-        <img v-else src="/404.jpg" alt="image-not-found">
+        <img v-else src="/404.png" :alt="item.title || item.name">
       </div>
-      <div class="card-body">
+      <div class="  overflow-y-auto  h-100 ">
+      <div class="card-body container-text">
         <h2>{{ item.title || item.name }}</h2>
         <h2>{{ item.original_title || item.original_name }}</h2>
         <div class="language">
           <img v-if="languageImg" :src="urlImgLang" :alt="item.original_language">
           <h2 v-else>{{ item.original_language}}</h2>
         </div>
-        <span v-for="(star,index) in stars" :key="index" class="fa-solid fa-star"></span>
-        <span v-for="(wstar,index) in (5 - stars)" :key="index" class="fa-regular fa-star"></span>
+        <div class=" star ">
+          <span v-for="star in stars" :key="star" class="fa-solid fa-star"></span>
+          <span v-for="wstar in (5 - stars)" :key="wstar" class="fa-regular fa-star"></span>
+        </div>
+        <p>{{ item.overview }}</p>
+      </div>
       </div>
     </div>
   </div>
@@ -68,14 +73,43 @@ export default {
 
 <style lang="scss" scoped>
 
-  .container-img{
-    img{
+  .container-card{
+    position: relative;
+    cursor: pointer;
+    overflow-y:auto;
+    
+    .container-img{
+      img{
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .container-text{
+      display: none;
+      color: white;
+      position: absolute;
+      top:0;
+      left:0;
       width: 100%;
+      min-height: 100%;
+      background-color: #434343ab;
+      // transition:height 2s;
+      .language{
+        img{
+          width: 30px;
+        }
+      }
     }
-  }
-  .language{
-    img{
-      width: 30px;
+    &:hover .container-text{
+      // height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      
     }
+
   }
+
+
+
 </style>
