@@ -76,11 +76,12 @@ export default {
   .container-card{
     position: relative;
     cursor: pointer;
-    overflow-y:auto;
+    overflow:hidden;
     
     .container-img{
       img{
         width: 100%;
+        height: 100%;
         object-fit: cover;
       }
     }
@@ -91,17 +92,19 @@ export default {
       top:0;
       left:0;
       width: 100%;
-      min-height: 100%;
+      height: 100%;
       background-color: #434343ab;
-      // transition:height 2s;
+      // transition:top 2s;
       .language{
         img{
           width: 30px;
         }
       }
+      p{
+        overflow: auto;
+      }
     }
     &:hover .container-text{
-      // height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;

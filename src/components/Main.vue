@@ -20,10 +20,6 @@
 
       </swiper>
 
-
-      <div class="row">
-          
-      </div>
     </div>
 
   </main>
